@@ -43,6 +43,10 @@ function calculate(operator){
             result.innerText = previousValue * newValue;
             break;
         case 'divide':
+            if(newValue == 0){
+                alert("Can not divided by 0");
+                break;
+            }
             result.innerText = previousValue / newValue;
             break;
         default:
