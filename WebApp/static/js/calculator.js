@@ -4,8 +4,10 @@ var result = document.getElementById('result');
 var previousValue = 0; 
 var newValue = 0;
 var lastOperator = 'equals'
+var operatorClicked = false; 
 
 function inputDigit(x){
+    operatorClicked = false;
     if(result.innerText.length >= MAX_DISPLAY_DIGIT) {
         alert("sorry~ over display length");
         return;
@@ -23,11 +25,14 @@ function inputDigit(x){
 function inputOperator(operator){
     if(lastOperator == 'equals') {
         previousValue = newValue;
+    }else if(operatorClicked){
+        lastOperator = operator;
+        return;
     }
     calculate(lastOperator);
     newValue = 0
     lastOperator = operator;
-    
+    operatorClicked =true;
 }
 
 function calculate(operator){
