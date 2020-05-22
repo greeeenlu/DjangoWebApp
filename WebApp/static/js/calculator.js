@@ -18,11 +18,9 @@ function inputDigit(x){
     }
 
     newValue = parseInt(result.innerText);
-    console.log('newValue:' + newValue);
 }
 
 function inputOperator(operator){
-    console.log("lastOperator", lastOperator, lastOperator.length );
     if(lastOperator == 'equals') {
         previousValue = newValue;
     }
