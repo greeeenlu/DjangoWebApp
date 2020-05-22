@@ -3,7 +3,7 @@ const MAX_DISPLAY_DIGIT = 14
 var result = document.getElementById('result');
 var previousValue = 0; 
 var newValue = 0;
-var lastOperator = ''
+var lastOperator = 'equals'
 
 function inputDigit(x){
     if(result.innerText.length >= MAX_DISPLAY_DIGIT) {
@@ -23,12 +23,13 @@ function inputDigit(x){
 
 function inputOperator(operator){
     console.log("lastOperator", lastOperator, lastOperator.length );
-    if(lastOperator.length == 0) {
+    if(lastOperator == 'equals') {
         previousValue = newValue;
     }
     calculate(lastOperator);
     newValue = 0
     lastOperator = operator;
+    
 }
 
 function calculate(operator){
@@ -47,7 +48,7 @@ function calculate(operator){
                 alert("Can not divided by 0");
                 break;
             }
-            result.innerText = previousValue / newValue;
+            result.innerText =Math.floor(previousValue / newValue);
             break;
         default:
             break;
