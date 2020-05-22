@@ -78,11 +78,19 @@ body {
     background-color: rgb(25, 149, 14);
 }
 
+.digital-btn:active{
+    background-color:  rgb(23, 126, 14);
+}
+
 .symbal-btn{
     background-color: rgb(81, 235, 176);
 }
 
 .symbal-btn:hover{
     background-color: rgb(64, 185, 139);
+}
+
+.symbal-btn:active{
+    background-color: rgb(45, 134, 97);
 }
 
