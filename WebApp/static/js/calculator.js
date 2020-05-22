@@ -1,4 +1,4 @@
-alert("this is calculator");
+const MAX_DISPLAY_DIGIT = 14
 
 var result = document.getElementById('result');
 var previousValue = 0; 
@@ -6,7 +6,10 @@ var newValue = 0;
 var lastOperator = ''
 
 function inputDigit(x){
-    if(result.innerText.length >= 14) return;
+    if(result.innerText.length >= MAX_DISPLAY_DIGIT) {
+        alert("sorry~ over display length");
+        return;
+    }
 
     if (result.innerText == '0' || newValue == 0){
         result.innerText = x;
