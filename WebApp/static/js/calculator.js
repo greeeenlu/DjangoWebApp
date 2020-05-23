@@ -13,7 +13,7 @@ function inputDigit(x){
         return;
     }
 
-    if (result.innerText == '0' || newValue == 0){
+    if (result.innerText === '0' || newValue == 0){
         result.innerText = x;
     }else{
         result.innerText += x;
@@ -23,14 +23,14 @@ function inputDigit(x){
 }
 
 function inputOperator(operator){
-    if(lastOperator == 'equals') {
+    if(lastOperator === 'equals') {
         previousValue = newValue;
     }else if(operatorClicked){
         lastOperator = operator;
         return;
     }
     calculate(lastOperator);
-    newValue = 0
+    newValue = 0;
     lastOperator = operator;
     operatorClicked =true;
 }
