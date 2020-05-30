@@ -4,7 +4,7 @@ operate = {
         'plus': lambda x, y: x + y,
         'minus': lambda x, y: x - y,
         'times': lambda x, y: x * y,
-        'divide': lambda x, y: x / y,
+        'divide': lambda x, y: x // y,
     }
 DISPLAY_MAX_LENGTH = 14
 
@@ -30,8 +30,10 @@ def digitInput(request, digit, previous, lastResult, lastOperator, reset):
 
 def operatorInput(request, operator, newResult, lastResult, lastOperator, reset):
     global operate
+    if reset:
+        return redirect(calculator,newResult=newResult,lastResult=lastResult, lastOperator=operator, reset=1)
     if lastOperator == 'equals':
-        return redirect(calculator,newResult=newResult,lastResult=0, lastOperator=operator, reset=1)
+        return redirect(calculator,newResult=newResult,lastResult=newResult, lastOperator=operator, reset=1)
     else:
         result = operate[lastOperator](int(lastResult),int(newResult))
     return redirect(calculator,newResult=result,lastResult=result, lastOperator=operator, reset=1)
