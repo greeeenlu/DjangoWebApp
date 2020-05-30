@@ -3,45 +3,45 @@
 {% block content %}
 <div class="calc-container">
     <div class="calc-display">
-    <span>{{ result }}</span>
+    <span>{{ newResult }}</span>
     </div>
     <div class="calc-body">
     <ul>
         <li>
-            <div class="symbal-btn">&plus;</div>
+            <div class="symbal-btn" onclick="location.href='{% url 'operatorInput' operator='plus' newResult=newResult lastResult=lastResult lastOperator=lastOperator reset=reset %}'">&plus;</div>
         </li>
         <li>
-            <div class="digital-btn" onclick="location.href='{% url 'digitInput' digit='9' previous=result %}'">9</div>
+            <div class="digital-btn" onclick="location.href='{% url 'digitInput' digit='9' previous=newResult lastResult=lastResult lastOperator=lastOperator reset=reset %}'">9</div>
         </li>
         <li>
-            <div class="digital-btn" onclick="location.href='{% url 'digitInput' digit='8' previous=result %}'">8</div>
+            <div class="digital-btn" onclick="location.href='{% url 'digitInput' digit='8' previous=newResult lastResult=lastResult lastOperator=lastOperator reset=reset %}'">8</div>
         </li>
         <li>
-            <div class="digital-btn" onclick="location.href='{% url 'digitInput' digit='7' previous=result %}'">7</div>
+            <div class="digital-btn" onclick="location.href='{% url 'digitInput' digit='7' previous=newResult lastResult=lastResult lastOperator=lastOperator reset=reset %}'">7</div>
         </li>
         <li>
             <div class="symbal-btn">&minus;</div>
         </li>
         <li>
-            <div class="digital-btn" onclick="location.href='{% url 'digitInput' digit='6' previous=result %}'">6</div>
+            <div class="digital-btn" onclick="location.href='{% url 'digitInput' digit='6' previous=newResult lastResult=lastResult lastOperator=lastOperator reset=reset %}'">6</div>
         </li>
         <li>
-            <div class="digital-btn" onclick="location.href='{% url 'digitInput' digit='5' previous=result %}'">5</div>
+            <div class="digital-btn" onclick="location.href='{% url 'digitInput' digit='5' previous=newResult lastResult=lastResult lastOperator=lastOperator reset=reset %}'">5</div>
         </li>
         <li>
-            <div class="digital-btn" onclick="location.href='{% url 'digitInput' digit='4' previous=result %}'">4</div>
+            <div class="digital-btn" onclick="location.href='{% url 'digitInput' digit='4' previous=newResult lastResult=lastResult lastOperator=lastOperator reset=reset %}'">4</div>
         </li>
         <li>
             <div class="symbal-btn">&times;</div>
         </li>
         <li>
-            <div class="digital-btn" onclick="location.href='{% url 'digitInput' digit='3' previous=result %}'">3</div>
+            <div class="digital-btn" onclick="location.href='{% url 'digitInput' digit='3' previous=newResult lastResult=lastResult lastOperator=lastOperator reset=reset %}'">3</div>
         </li>
         <li>
-            <div class="digital-btn" onclick="location.href='{% url 'digitInput' digit='2' previous=result %}'">2</div>
+            <div class="digital-btn" onclick="location.href='{% url 'digitInput' digit='2' previous=newResult lastResult=lastResult lastOperator=lastOperator reset=reset %}'">2</div>
         </li>
         <li>
-            <div class="digital-btn" onclick="location.href='{% url 'digitInput' digit='1' previous=result %}'">1</div>
+            <div class="digital-btn" onclick="location.href='{% url 'digitInput' digit='1' previous=newResult lastResult=lastResult lastOperator=lastOperator reset=reset %}'">1</div>
         </li>
         <li>
             <div class="symbal-btn">&divide;</div>
@@ -50,7 +50,7 @@
             <div class="symbal-btn">&equals;</div>
         </li>
         <li>
-            <div class="digital-btn" onclick="location.href='{% url 'digitInput' digit='0' previous=result %}'">0</div>
+            <div class="digital-btn" onclick="location.href='{% url 'digitInput' digit='0' previous=newResult lastResult=lastResult lastOperator=lastOperator reset=reset %}'">0</div>
         </li>
     </ul>
     </div> 

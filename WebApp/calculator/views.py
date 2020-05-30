@@ -1,22 +1,38 @@
 from django.shortcuts import render, redirect
 
+operate = {
+        'plus': lambda x, y: x + y,
+        'minus': lambda x, y: x - y,
+        'times': lambda x, y: x * y,
+        'divide': lambda x, y: x / y,
+    }
 
-
-# Create your views here.
-def calculator(request, result='0'):
+def calculator(request, newResult='0', lastResult='0', lastOperator='equals', reset=1):
     content = {
-        'result' : result
+        'newResult' : newResult,
+        'lastResult' : lastResult,
+        'lastOperator' : lastOperator,
+        'reset': reset,
     }
     return  render(request, 'calculator/calculator.html', content)
 
-def digitInput(request, digit, previous):
-    if previous == '0':
+def digitInput(request, digit, previous, lastResult, lastOperator, reset):
+    if reset:
         newResult = str(digit)
     elif len(previous) >= 14:
         newResult = previous
     else:
         newResult = previous + str(digit)
 
-    return redirect(calculator,result=newResult )
+    return redirect(calculator,newResult=newResult,lastResult=lastResult, lastOperator=lastOperator, reset=0)
+
+def operatorInput(request, operator, newResult, lastResult, lastOperator, reset):
+    global operate
+    if lastOperator == 'equals':
+        return redirect(calculator,newResult=newResult,lastResult=0, lastOperator=operator, reset=1)
+    else:
+        result = operate[lastOperator](int(lastResult),int(newResult))
+    return redirect(calculator,newResult=result,lastResult=result, lastOperator=operator, reset=1)
+
 
 
