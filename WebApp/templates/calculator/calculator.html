@@ -20,7 +20,7 @@
             <div class="digital-btn" onclick="location.href='{% url 'digitInput' digit='7' previous=newResult lastResult=lastResult lastOperator=lastOperator reset=reset %}'">7</div>
         </li>
         <li>
-            <div class="symbal-btn">&minus;</div>
+            <div class="symbal-btn" onclick="location.href='{% url 'operatorInput' operator='minus' newResult=newResult lastResult=lastResult lastOperator=lastOperator reset=reset %}'">&minus;</div>
         </li>
         <li>
             <div class="digital-btn" onclick="location.href='{% url 'digitInput' digit='6' previous=newResult lastResult=lastResult lastOperator=lastOperator reset=reset %}'">6</div>
@@ -32,7 +32,7 @@
             <div class="digital-btn" onclick="location.href='{% url 'digitInput' digit='4' previous=newResult lastResult=lastResult lastOperator=lastOperator reset=reset %}'">4</div>
         </li>
         <li>
-            <div class="symbal-btn">&times;</div>
+            <div class="symbal-btn" onclick="location.href='{% url 'operatorInput' operator='times' newResult=newResult lastResult=lastResult lastOperator=lastOperator reset=reset %}'">&times;</div>
         </li>
         <li>
             <div class="digital-btn" onclick="location.href='{% url 'digitInput' digit='3' previous=newResult lastResult=lastResult lastOperator=lastOperator reset=reset %}'">3</div>
@@ -44,10 +44,10 @@
             <div class="digital-btn" onclick="location.href='{% url 'digitInput' digit='1' previous=newResult lastResult=lastResult lastOperator=lastOperator reset=reset %}'">1</div>
         </li>
         <li>
-            <div class="symbal-btn">&divide;</div>
+            <div class="symbal-btn" onclick="location.href='{% url 'operatorInput' operator='divide' newResult=newResult lastResult=lastResult lastOperator=lastOperator reset=reset %}'">&divide;</div>
         </li>
         <li>
-            <div class="symbal-btn">&equals;</div>
+            <div class="symbal-btn"onclick="location.href='{% url 'operatorInput' operator='equals' newResult=newResult lastResult=lastResult lastOperator=lastOperator reset=reset %}'">&equals;</div>
         </li>
         <li>
             <div class="digital-btn" onclick="location.href='{% url 'digitInput' digit='0' previous=newResult lastResult=lastResult lastOperator=lastOperator reset=reset %}'">0</div>
