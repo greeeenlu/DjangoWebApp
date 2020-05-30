@@ -12,6 +12,8 @@ def calculator(request, result='0'):
 def digitInput(request, digit, previous):
     if previous == '0':
         newResult = str(digit)
+    elif len(previous) >= 14:
+        newResult = previous
     else:
         newResult = previous + str(digit)
 
