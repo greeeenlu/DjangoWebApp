@@ -3,5 +3,6 @@ from . import views
 
 urlpatterns = [
     path('', views.calculator),
-    path('calculator/', views.calculator)
+    path('calculator/<str:result>', views.calculator),
+    path('calculator/digit/<str:digit>/<str:previous>', views.digitInput, name= 'digitInput')
 ]

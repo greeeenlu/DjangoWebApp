@@ -3,7 +3,7 @@
 {% block content %}
 <div class="calc-container">
     <div class="calc-display">
-        <span>0</span>
+    <span>{{ result }}</span>
     </div>
     <div class="calc-body">
     <ul>
@@ -11,37 +11,37 @@
             <div class="symbal-btn">&plus;</div>
         </li>
         <li>
-            <div class="digital-btn">9</div>
+            <div class="digital-btn" onclick="location.href='{% url 'digitInput' digit='9' previous=result %}'">9</div>
         </li>
         <li>
-            <div class="digital-btn">8</div>
+            <div class="digital-btn" onclick="location.href='{% url 'digitInput' digit='8' previous=result %}'">8</div>
         </li>
         <li>
-            <div class="digital-btn">7</div>
+            <div class="digital-btn" onclick="location.href='{% url 'digitInput' digit='7' previous=result %}'">7</div>
         </li>
         <li>
             <div class="symbal-btn">&minus;</div>
         </li>
         <li>
-            <div class="digital-btn">6</div>
+            <div class="digital-btn" onclick="location.href='{% url 'digitInput' digit='6' previous=result %}'">6</div>
         </li>
         <li>
-            <div class="digital-btn">5</div>
+            <div class="digital-btn" onclick="location.href='{% url 'digitInput' digit='5' previous=result %}'">5</div>
         </li>
         <li>
-            <div class="digital-btn">4</div>
+            <div class="digital-btn" onclick="location.href='{% url 'digitInput' digit='4' previous=result %}'">4</div>
         </li>
         <li>
             <div class="symbal-btn">&times;</div>
         </li>
         <li>
-            <div class="digital-btn">3</div>
+            <div class="digital-btn" onclick="location.href='{% url 'digitInput' digit='3' previous=result %}'">3</div>
         </li>
         <li>
-            <div class="digital-btn">2</div>
+            <div class="digital-btn" onclick="location.href='{% url 'digitInput' digit='2' previous=result %}'">2</div>
         </li>
         <li>
-            <div class="digital-btn">1</div>
+            <div class="digital-btn" onclick="location.href='{% url 'digitInput' digit='1' previous=result %}'">1</div>
         </li>
         <li>
             <div class="symbal-btn">&divide;</div>
