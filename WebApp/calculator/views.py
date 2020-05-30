@@ -32,7 +32,7 @@ def operatorInput(request, operator, newResult, lastResult, lastOperator, reset)
     global operate
     if reset:
         return redirect(calculator,newResult=newResult,lastResult=lastResult, lastOperator=operator, reset=1)
-    if lastOperator == 'equals':
+    elif lastOperator === 'equals':
         return redirect(calculator,newResult=newResult,lastResult=newResult, lastOperator=operator, reset=1)
     else:
         result = operate[lastOperator](int(lastResult),int(newResult))
