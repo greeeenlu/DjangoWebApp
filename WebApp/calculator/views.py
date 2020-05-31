@@ -8,7 +8,7 @@ operate = {
     }
 DISPLAY_MAX_LENGTH = 14
 
-def calculator(request, newResult='0', lastResult='0', lastOperator='equals', reset=1, alert=1):
+def calculator(request, newResult='0', lastResult='0', lastOperator='equals', reset=1, alert=0):
     content = {
         'newResult' : newResult,
         'lastResult' : lastResult,
@@ -40,7 +40,14 @@ def operatorInput(request, operator, newResult, lastResult, lastOperator, reset)
             result = operate[lastOperator](int(lastResult),int(newResult))
             return redirect(calculator,newResult=result,lastResult=result, lastOperator=operator, reset=1)
         except :
-            return redirect(calculator)
+            content = {
+            'newResult' : '0',
+            'lastResult' : '0',
+            'lastOperator' : 'equals',
+            'reset': 1,
+            'alert':1,
+            }
+            return  render(request, 'calculator/calculator.html', content)
 
 
 
