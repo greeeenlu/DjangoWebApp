@@ -41,11 +41,11 @@ def operatorInput(request, operator, newResult, lastResult, lastOperator, reset)
             return redirect(calculator,newResult=result,lastResult=result, lastOperator=operator, reset=1)
         except :
             content = {
-            'newResult' : '0',
-            'lastResult' : '0',
-            'lastOperator' : 'equals',
-            'reset': 1,
-            'alert':1,
+                'newResult' : '0',
+                'lastResult' : '0',
+                'lastOperator' : 'equals',
+                'reset': 1,
+                'alert':1,
             }
             return  render(request, 'calculator/calculator.html', content)
 
