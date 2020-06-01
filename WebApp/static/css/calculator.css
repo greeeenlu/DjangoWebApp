@@ -78,12 +78,20 @@ body {
     background-color: rgb(25, 149, 14);
 }
 
+.digital-btn:active{
+    background-color:  rgb(23, 126, 14);
+}
+
 .symbal-btn{
     background-color: rgb(81, 235, 176);
 }
 
 .symbal-btn:hover{
     background-color: rgb(64, 185, 139);
+}
+
+.symbal-btn:active{
+    background-color: rgb(50, 145, 108);
 }
 
 .alert {
@@ -99,26 +107,27 @@ body {
   }
   
 .closebtn {
-margin-left: 15px;
-color: white;
-font-weight: bold;
-float: right;
-font-size: 22px;
-line-height: 20px;
-cursor: pointer;
-transition: 0.3s;
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
 .closebtn:hover {
-color: black;
+    color: black;
 }
 
 @keyframes myAnimation{
     0%{
       opacity: 1;
     }
+
     100%{
       display: none;
       opacity: 0;
     }
-  }
+}
