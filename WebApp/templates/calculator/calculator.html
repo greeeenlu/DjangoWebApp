@@ -3,56 +3,63 @@
 {% block content %}
 <div class="calc-container">
     <div class="calc-display">
-        <span>0</span>
+        <span>{{displayResult}}</span>
     </div>
     <div class="calc-body">
-    <ul>
-        <li>
-            <div class="symbal-btn">&plus;</div>
-        </li>
-        <li>
-            <div class="digital-btn">9</div>
-        </li>
-        <li>
-            <div class="digital-btn">8</div>
-        </li>
-        <li>
-            <div class="digital-btn">7</div>
-        </li>
-        <li>
-            <div class="symbal-btn">&minus;</div>
-        </li>
-        <li>
-            <div class="digital-btn">6</div>
-        </li>
-        <li>
-            <div class="digital-btn">5</div>
-        </li>
-        <li>
-            <div class="digital-btn">4</div>
-        </li>
-        <li>
-            <div class="symbal-btn">&times;</div>
-        </li>
-        <li>
-            <div class="digital-btn">3</div>
-        </li>
-        <li>
-            <div class="digital-btn">2</div>
-        </li>
-        <li>
-            <div class="digital-btn">1</div>
-        </li>
-        <li>
-            <div class="symbal-btn">&divide;</div>
-        </li>
-        <li>
-            <div class="symbal-btn">&equals;</div>
-        </li>
-        <li>
-            <div class="digital-btn">0</div>
-        </li>
-    </ul>
-    </div> 
+        <form action="." method="post">
+            {% csrf_token %}
+            <input type="hidden" name="lastOperator" value="{{lastOperator}}">
+            <input type="hidden" name="previousValue" value="{{previousValue}}">
+            <input type="hidden" name="newValue" value="{{newValue}}">
+            <input type="hidden" name="isOperatorClicked" value="{{isOperatorClicked}}">
+            <ul>
+                <li>
+                    <input type="submit" name="operatorInput" class="symbal-btn" value="+">
+                </li>
+                <li>
+                    <input type="submit" name="digitalInput" class="digital-btn" value="9">
+                </li>
+                <li>
+                    <input type="submit" name="digitalInput" class="digital-btn" value="8">
+                </li>
+                <li>
+                    <input type="submit" name="digitalInput" class="digital-btn" value="7">
+                </li>
+                <li>
+                    <input type="submit" name="operatorInput" class="symbal-btn" value="-">
+                </li>
+                <li>
+                    <input type="submit" name="digitalInput" class="digital-btn" value="6">
+                </li>
+                <li>
+                    <input type="submit" name="digitalInput" class="digital-btn" value="5">
+                </li>
+                <li>
+                    <input type="submit" name="digitalInput" class="digital-btn" value="4">
+                </li>
+                <li>
+                    <input type="submit" name="operatorInput" class="symbal-btn" value="x">
+                </li>
+                <li>
+                    <input type="submit" name="digitalInput" class="digital-btn" value="3">
+                </li>
+                <li>
+                    <input type="submit" name="digitalInput" class="digital-btn" value="2">
+                </li>
+                <li>
+                    <input type="submit" name="digitalInput" class="digital-btn" value="1">
+                </li>
+                <li>
+                    <input type="submit" name="operatorInput" class="symbal-btn" value="÷">
+                </li>
+                <li>
+                    <input type="submit" name="operatorInput" class="symbal-btn" value="=">
+                </li>
+                <li>
+                    <input type="submit" name="digitalInput" class="digital-btn" value="0">
+                </li>
+            </ul>
+        </form>
+    </div>
 </div>
 {% endblock content %}

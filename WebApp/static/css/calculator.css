@@ -58,7 +58,7 @@ body {
     float: right;
 }
 
-.calc-body li div{
+input{
     display: block;
     padding: 1rem;
     margin: 0.5rem;
