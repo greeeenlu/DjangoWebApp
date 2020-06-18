@@ -20,12 +20,22 @@ def calculator(request):
         if 'lastOperator' in form:
             content['lastOperator'] = form['lastOperator']
         if 'operatorInput' in form:
-            if form['operatorInput'] == '+':
-                newValue = int(form['previousValue']) + int(form['newValue'])
+            operate = {
+                '+': lambda x, y: x + y,
+                '-': lambda x, y: x - y,
+                'x': lambda x, y: x * y,
+                '÷': lambda x, y: x // y,
+            }
+            if content['lastOperator'] == '=':
+                content['previousValue'] = content['newValue']
+                content['displayResult'] = content['newValue']
+            else:
+                newValue = operate[content['lastOperator']](int(form['previousValue']), int(form['newValue']))
+                print('operatorInput : newinput:' + str(newValue))
                 content['displayResult'] = newValue
                 content['previousValue'] = newValue
-                content['lastOperator'] = '+'
-                content['newValue'] = 0
+            content['lastOperator'] = form['operatorInput']
+            content['newValue'] = 0
 
         if 'digitalInput' in form:
             newValue = content['newValue'] * 10 + int(form['digitalInput'])
