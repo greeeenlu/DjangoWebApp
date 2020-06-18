@@ -15,6 +15,18 @@ def calculator(request):
         print(form)
         if 'newValue' in form:
             content['newValue'] = int(form['newValue'])
+        if 'previousValue' in form:
+            content['previousValue'] = int(form['previousValue'])
+        if 'lastOperator' in form:
+            content['lastOperator'] = form['lastOperator']
+        if 'operatorInput' in form:
+            if form['operatorInput'] == '+':
+                newValue = int(form['previousValue']) + int(form['newValue'])
+                content['displayResult'] = newValue
+                content['previousValue'] = newValue
+                content['lastOperator'] = '+'
+                content['newValue'] = 0
+
         if 'digitalInput' in form:
             newValue = content['newValue'] * 10 + int(form['digitalInput'])
             print(newValue)
@@ -24,5 +36,5 @@ def calculator(request):
             else:
                 content['displayResult'] = newValue
                 content['newValue'] = newValue
-            print(content)
+        print(content)
     return render(request, 'calculator/calculator.html', content)
