@@ -1,7 +1,5 @@
 from django.shortcuts import render
 
-
-# Create your views here.
 def calculator(request):
     def initContent():
         return {
@@ -11,7 +9,6 @@ def calculator(request):
             'newValue': 0,
             'isOperatorClicked': False
         }
-
     content = initContent()
     if request.method == 'POST':
         form = request.POST
@@ -29,7 +26,6 @@ def calculator(request):
             if content['isOperatorClicked'] == 'True':
                 content['lastOperator'] = form['operatorInput']
                 content['displayResult'] = content['previousValue']
-                print('****isOperatorClicked is true***' + str(content['isOperatorClicked']))
                 return render(request, 'calculator/calculator.html', content)
 
             if content['isOperatorClicked'] == 'False':
@@ -52,7 +48,6 @@ def calculator(request):
                     content['alert'] = True
                     print('CONTENT: ' + str(content))
                     return render(request, 'calculator/calculator.html', content)
-                print('operatorInput : newInput:' + str(newValue))
                 content['displayResult'] = newValue
                 content['previousValue'] = newValue
             content['lastOperator'] = form['operatorInput']
