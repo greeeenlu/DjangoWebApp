@@ -12,7 +12,8 @@ def calculator(request):
     }
     if request.method == 'POST':
         form = request.POST
-        print(form)
+        print('FORM : ' + str(form))
+
         if 'newValue' in form:
             content['newValue'] = int(form['newValue'])
         if 'previousValue' in form:
@@ -27,8 +28,8 @@ def calculator(request):
                 '÷': lambda x, y: x // y,
             }
             if content['lastOperator'] == '=':
+                content['previousValue'] = content['newValue']
                 content['displayResult'] = content['previousValue']
-                content['newValue'] = content['previousValue']
             else:
                 newValue = operate[content['lastOperator']](int(form['previousValue']), int(form['newValue']))
                 print('operatorInput : newInput:' + str(newValue))
@@ -39,12 +40,11 @@ def calculator(request):
 
         if 'digitalInput' in form:
             newValue = content['newValue'] * 10 + int(form['digitalInput'])
-            print(newValue)
             if newValue > 9999999999999:
                 content['displayResult'] = content['newValue']
                 return render(request, 'calculator/calculator.html', content)
             else:
                 content['displayResult'] = newValue
                 content['newValue'] = newValue
-        print(content)
+        print('CONTENT: ' + str(content))
     return render(request, 'calculator/calculator.html', content)
