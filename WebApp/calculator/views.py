@@ -27,11 +27,11 @@ def calculator(request):
                 '÷': lambda x, y: x // y,
             }
             if content['lastOperator'] == '=':
-                content['previousValue'] = content['newValue']
-                content['displayResult'] = content['newValue']
+                content['displayResult'] = content['previousValue']
+                content['newValue'] = content['previousValue']
             else:
                 newValue = operate[content['lastOperator']](int(form['previousValue']), int(form['newValue']))
-                print('operatorInput : newinput:' + str(newValue))
+                print('operatorInput : newInput:' + str(newValue))
                 content['displayResult'] = newValue
                 content['previousValue'] = newValue
             content['lastOperator'] = form['operatorInput']
