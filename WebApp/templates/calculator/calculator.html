@@ -1,6 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
+{% if alert %}
+<div class="alert">
+    <span class="closebtn">&times;</span>
+    <strong>Warning!</strong> can't divided by zero!
+</div>
+{% endif %}
 <div class="calc-container">
     <div class="calc-display">
         <span>{{displayResult}}</span>

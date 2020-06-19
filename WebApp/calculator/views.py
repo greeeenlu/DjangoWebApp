@@ -31,7 +31,12 @@ def calculator(request):
                 content['previousValue'] = content['newValue']
                 content['displayResult'] = content['previousValue']
             else:
-                newValue = operate[content['lastOperator']](int(form['previousValue']), int(form['newValue']))
+                try:
+                    newValue = operate[content['lastOperator']](int(form['previousValue']), int(form['newValue']))
+                except:
+                    content['alert'] = True
+                    print('CONTENT: ' + str(content))
+                    return render(request, 'calculator/calculator.html', content)
                 print('operatorInput : newInput:' + str(newValue))
                 content['displayResult'] = newValue
                 content['previousValue'] = newValue
